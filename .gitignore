@@ -1,0 +1,66 @@
+# ===== Vivado / Xilinx =====
+# Ignore generated logs, journals, reports, and tool caches
+*.jou
+*.log
+*.str
+*.pb
+
+# Vivado run/build / workspace artefacts
+*.runs/
+.runs/
+*.cache/
+.cache/
+*.sim/
+.sim/
+*.hw/
+.hw/
+.ip_user_files/
+.ip_user_files_*/
+.ip_user_files_backup/
+.xil/
+
+# Synthesis / implementation / bitstream outputs (binary artefacts)
+*.bit
+*.bin
+*.mcs
+*.elf
+*.dcp
+*.ltx
+*.svf
+
+# Simulation waveforms / dumps
+*.wdb
+*.vcd
+*.simlog
+
+# Vitis / SDK / workspace metadata
+.sdk/
+.vitis/
+.vitis_work/
+.metadata/
+.settings/
+
+# Temporary and editor files
+*~
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+*.pyc
+__pycache__/
+.DS_Store
+
+# Build system / tool-specific caches
+*.jou
+*.cache
+*.log
+
+# Misc
+tags
+*.log.*
+
+# ===== Keep these (explicitly) =====
+# Don't ignore your HDL sources, constraints, and project files:
+#   - .v, .sv, .vhd, .vhdr, .xdc, .xdc.tcl, .xpr, .xdc
+# (They're intentionally not listed above so they'll be tracked)
