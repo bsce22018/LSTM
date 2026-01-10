@@ -1,7 +1,8 @@
 import serial, struct, csv, time
 
 # Open serial port
-ser = serial.Serial('COM8', 115200, timeout=0.1)  # timeout added so it doesn't hang
+BAUD = 9600
+ser = serial.Serial('COM8', baudrate=BAUD, timeout=0.1)  # timeout added so it doesn't hang
 
 # Open CSV file
 with open('accelerometer.csv') as f:
@@ -33,7 +34,7 @@ with open('accelerometer.csv') as f:
                 print("FPGA HX: no response")
 
             # Wait a bit before next packet
-            time.sleep(0.01)
+            time.sleep(0.03)
 
         except Exception as e:
             print(f"Error on row {i}: {e}")
