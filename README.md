@@ -133,12 +133,6 @@ python UART_CSV.py
 
 ---
 
-## Notes & known limitations
+## Notes
 
-This is a working proof-of-concept, not a production accelerator. A few things to be aware of before building on it:
-
-- **Constant weights on-chip.** `lstm_cell1` uses hard-coded demo weights (`W = 0.5`, `B = 0`) for every gate; the trained weights from `LSTM.ipynb` are **not** loaded into the hardware. The RTL demonstrates the datapath and control flow rather than running the trained model.
-- **Baud-rate mismatch.** `UART_CSV.py` opens the port at **9600** baud, while `uart_rx`/`uart_tx` default to **115200**. Align these before expecting valid data exchange.
-- **`uart_rx` reset not connected.** `top_fpga` instantiates `uart_rx` without wiring its active-low `rst_n` (or `framing_error`) port. Connect `rst_n` for reliable start-up.
-- **Notebook CSV columns.** `load_accelerometer_data` in the notebook reads columns `[1], [2], [3]`, i.e. it expects a leading index/timestamp column. The committed `accelerometer.csv` has just three columns (`x, y, z`), so adjust the indexing (or the CSV) when re-running the notebook.
-- **Linear activations.** The sigmoid/tanh approximations are coarse piecewise-linear stand-ins; expect meaningful divergence from the NumPy model's `numpy.tanh`/exact sigmoid.
+This is a working proof-of-concept, not a production accelerator. It has known limitations and rough edges, and is intended as a learning and demonstration project rather than something to deploy as-is.

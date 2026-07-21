@@ -1,7 +1,7 @@
 import serial, struct, csv, time
 
 # Open serial port
-BAUD = 9600
+BAUD = 115200
 ser = serial.Serial('COM8', baudrate=BAUD, timeout=0.1)  # timeout added so it doesn't hang
 
 # Open CSV file
